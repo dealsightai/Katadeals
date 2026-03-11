@@ -1,0 +1,1 @@
+import type { Metadata } from 'next' export const metadata: Metadata = { title: 'KataDeals', description: 'AI Real Estate Decision Engine', } export default function RootLayout({ children, }: { children: React.ReactNode }) { return ( <htmllang="en"> <body>{children}</body> </html> ) }
