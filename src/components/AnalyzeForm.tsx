@@ -45,6 +45,7 @@ setLoading(false);
 };
 return (
 <form onSubmit={handleSubmit}
+noValidate
 className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
 {/* Address */}
 <div>
