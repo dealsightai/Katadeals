@@ -37,7 +37,11 @@ const d = await res.json();
 throw new Error(d.error ?? "Analysis failed");
 }
 const data = await res.json();
-router.push(`/analyze/${data.dealId}`);
+if (data.dealId) {
+  router.push(`/analyze/${data.dealId}`);
+} else {
+  router.push(`/analyze/result?data=${encodeURIComponent(JSON.stringify(data.analysis))}`);
+}
 } catch (err: any) {
 setError(err.message ?? "Something went wrong. Please try again.");
 setLoading(false);
