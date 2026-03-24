@@ -8,16 +8,23 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 export async function POST(req: Request) {
   const { address, price, sqft, bedrooms, bathrooms, notes } = await req.json();
 
-  const prompt = `
+const prompt = `
     You are a real estate investment analyst. Analyze this deal:
     Address: ${address}
     Price: $${price}
     Size: ${sqft} sqft | ${bedrooms}bd / ${bathrooms}ba
     Notes: ${notes}
 
-    Provide: deal score (1-10), estimated ARV, estimated monthly rent, cash flow estimate,
-    cap rate, red flags, positives, summary, and a buy/hold/pass recommendation.
-    Format as JSON.
+    Respond with JSON containing exactly these fields:
+    - dealScore: number between 1-10
+    - recommendation: "BUY", "HOLD", or "PASS"
+    - estimatedARV: number (no dollar sign)
+    - estimatedMonthlyRent: number (no dollar sign)
+    - estimatedCashFlow: number (no dollar sign)
+    - capRate: number (percentage like 4.8)
+    - positives: array of strings (no dashes or bullets)
+    - redFlags: array of strings (no dashes or bullets)
+    - summary: string
   `;
 
   const response = await openai.chat.completions.create({
