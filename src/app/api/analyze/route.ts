@@ -4,7 +4,9 @@ import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+function getOpenAI() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 export async function POST(req: Request) {
   const { address, price, sqft, bedrooms, bathrooms, notes } = await req.json();
@@ -191,7 +193,8 @@ Respond with a JSON object containing ALL of these fields:
 Provide realistic estimates based on the address location and current market conditions. Include at least 3 development options relevant to this property. Include at least 5 exit strategies. All numbers should be realistic for the market area.`;
 
   try {
-    const response = await openai.chat.completions.create({
+    const openai = getOpenAI();
+const response = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [{ role: "user", content: prompt }],
       response_format: { type: "json_object" },
