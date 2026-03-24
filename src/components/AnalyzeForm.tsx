@@ -52,46 +52,130 @@ export default function AnalyzeForm() {
     return (
       <div className="space-y-6">
         <DealReport deal={result} />
-        <button onClick={() => setResult(null)} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 rounded-xl transition-colors text-base">
-          Analyze Another Deal
+        <button
+          onClick={() => setResult(null)}
+          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
+        >
+          ← Analyze Another Deal
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      className="bg-slate-900 border border-slate-700 rounded-2xl p-6 md:p-8 space-y-5"
+    >
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Property Address *</label>
-        <input type="text" required placeholder="123 Main St, Austin TX 78701" value={form.address} onChange={(e) => update("address", e.target.value)} className="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+        <label className="block text-sm font-medium text-slate-300 mb-1.5">
+          Property Address *
+        </label>
+        <input
+          type="text"
+          required
+          placeholder="123 Main St, Austin TX 78701"
+          value={form.address}
+          onChange={(e) => update("address", e.target.value)}
+          className="w-full bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
+        />
       </div>
+
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Asking Price ($) *</label>
-          <input type="text" inputMode="numeric" required placeholder="250000" value={form.price} onChange={(e) => update("price", e.target.value)} className="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            Asking Price ($) *
+          </label>
+          <input
+            type="text"
+            inputMode="numeric"
+            required
+            placeholder="250000"
+            value={form.price}
+            onChange={(e) => update("price", e.target.value)}
+            className="w-full bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Square Feet</label>
-          <input type="text" inputMode="numeric" placeholder="1400" value={form.sqft} onChange={(e) => update("sqft", e.target.value)} className="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            Square Feet
+          </label>
+          <input
+            type="text"
+            inputMode="numeric"
+            placeholder="1400"
+            value={form.sqft}
+            onChange={(e) => update("sqft", e.target.value)}
+            className="w-full bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
+          />
         </div>
       </div>
+
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Bedrooms</label>
-          <input type="text" inputMode="numeric" placeholder="3" value={form.bedrooms} onChange={(e) => update("bedrooms", e.target.value)} className="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            Bedrooms
+          </label>
+          <input
+            type="text"
+            inputMode="numeric"
+            placeholder="3"
+            value={form.bedrooms}
+            onChange={(e) => update("bedrooms", e.target.value)}
+            className="w-full bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Bathrooms</label>
-          <input type="text" inputMode="numeric" placeholder="2" value={form.bathrooms} onChange={(e) => update("bathrooms", e.target.value)} className="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            Bathrooms
+          </label>
+          <input
+            type="text"
+            inputMode="numeric"
+            placeholder="2"
+            value={form.bathrooms}
+            onChange={(e) => update("bathrooms", e.target.value)}
+            className="w-full bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
+          />
         </div>
       </div>
+
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Additional Notes</label>
-        <textarea rows={3} placeholder="Condition, neighborhood, renovation needed, rental comps..." value={form.notes} onChange={(e) => update("notes", e.target.value)} className="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none" />
+        <label className="block text-sm font-medium text-slate-300 mb-1.5">
+          Additional Notes
+        </label>
+        <textarea
+          rows={3}
+          placeholder="Condition, neighborhood, renovation needed, rental comps, property type (land, residential, commercial)..."
+          value={form.notes}
+          onChange={(e) => update("notes", e.target.value)}
+          className="w-full bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm resize-none"
+        />
       </div>
-      {error && <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-3">{error}</p>}
-      <button type="submit" disabled={loading} className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-semibold py-3.5 rounded-xl transition-colors text-base">
-        {loading ? "Analyzing deal with AI..." : "Analyze This Deal →"}
+
+      {error && (
+        <p className="text-red-400 text-sm bg-red-950/50 border border-red-800 rounded-xl px-4 py-3">
+          {error}
+        </p>
+      )}
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
+      >
+        {loading ? (
+          <span className="flex items-center justify-center gap-2">
+            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            Analyzing deal with AI...
+          </span>
+        ) : (
+          "Analyze This Deal →"
+        )}
       </button>
     </form>
   );
