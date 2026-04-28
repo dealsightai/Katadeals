@@ -407,7 +407,7 @@ export async function POST(req: Request) {
             .then((res) => ({
               type: "renovation",
               label: `${label} — Photo ${i + 1}`,
-              url: res.data[0]?.url || null,
+              url: res.data?.[0]?.url || null,
               originalPhoto: body.photos[i],
             }))
             .catch((err) => ({
