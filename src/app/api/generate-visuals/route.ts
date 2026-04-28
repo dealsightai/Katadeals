@@ -434,7 +434,7 @@ export async function POST(req: Request) {
                 .then((res) => ({
                   type: "groundup",
                   label: subtype,
-                  url: res.data[0]?.url || null,
+                  url: res.data?.[0]?.url || null,
                 }))
                 .catch((err) => ({
                   type: "groundup",
@@ -462,7 +462,7 @@ The building sits on a professionally landscaped lot with a full parking lot, si
               .then((res) => ({
                 type: "groundup",
                 label: `Franchise: ${franchiseType}`,
-                url: res.data[0]?.url || null,
+                url: res.data?.[0]?.url || null,
               }))
               .catch((err) => ({
                 type: "groundup",
@@ -500,7 +500,7 @@ The building sits on a professionally landscaped lot with a full parking lot, si
               .then((res) => ({
                 type: "groundup",
                 label: `${type} Build`,
-                url: res.data[0]?.url || null,
+                url: res.data?.[0]?.url || null,
               }))
               .catch((err) => ({
                 type: "groundup",
